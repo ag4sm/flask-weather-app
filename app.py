@@ -1,7 +1,19 @@
 import requests
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = ''
+
+db = SQLAlchemy(app)
+SQLAlchemy_database_URI
+
+class City(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), null=False)
+    
+
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -19,6 +31,5 @@ def index():
         'sunrise': r['sys']['sunrise'],
         'sunset': r['sys']['sunset']
     }
-    print(weather)
 
-    return render_template('weather.html')
+    return render_template('weather.html',weather=weather)

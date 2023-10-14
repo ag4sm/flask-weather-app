@@ -42,7 +42,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    {% for weather in weather_data %}
+                    {% for weather in weatherdata %}
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
@@ -57,6 +57,10 @@
                                         <br>
                                         <span class="subtitle">{{ weather.temperature }}° F</span>
                                         <br> {{ weather.description }}
+                                        <br> {{ weather.feels_like }}
+                                        <br> {{ weather.humidity }}
+                                        <br> {{ weather.sunrise }}
+                                        <br> {{ weather.sunset }}
                                     </p>
                                 </div>
                             </div>
